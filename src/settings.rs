@@ -6,7 +6,6 @@ use serde_derive::{Deserialize, Serialize};
 use crate::types;
 
 pub trait Config {
-
     fn get_profile(&self) -> &String;
 
     fn save(self) -> types::BackupResult<Self>
@@ -83,7 +82,6 @@ pub struct Backup {
 }
 
 impl Config for Backup {
-
     fn get_profile(&self) -> &String {
         return &self.profile;
     }

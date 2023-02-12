@@ -1,6 +1,7 @@
+mod fs;
 mod settings;
-mod types;
 mod tool;
+mod types;
 
 use clap::Parser;
 use std::{path::PathBuf, time::Instant};
@@ -70,11 +71,11 @@ fn main() -> types::BackupResult<()> {
             }
             config = config.save()?;
             println!("Loaded: {:#?}", config);
-        },
-        Action::Backup {profile} => {
+        }
+        Action::Backup { profile } => {
             println!("Backup action.");
             tool::backup(&profile)?
-        },
+        }
         _ => todo!(),
     }
     println!("Elapsed time of {:?}", start.elapsed());
